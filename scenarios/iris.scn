@@ -414,58 +414,55 @@
         </base_link>
 
         <sensor name="dynamics" type="odometry" rate="30.0">
-            <link name="Vehicle"/>
-            <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
-            <ros_publisher topic="/iris/dynamics/odometry"/>
-        </sensor>
+			<link name="Vehicle"/>
+			<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+			<ros_publisher topic="/iris/dynamics/odometry"/>
+		</sensor>
 
-        <sensor name="pressure" type="pressure" rate="5.0">
-            <link name="Vehicle"/>
-            <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
-            <noise pressure="5.0"/>
-            <ros_publisher topic="/iris/navigator/pressure"/>
-        </sensor>
+		<sensor name="pressure" type="pressure" rate="5.0">
+			<link name="Vehicle"/>
+			<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+			<noise pressure="5.0"/>
+			<ros_publisher topic="/iris/navigator/pressure"/>
+		</sensor>
 
-        <sensor name="dvl" type="dvl" rate="5.0">
-            <link name="Vehicle"/>
-            <origin rpy="3.1416 0.0 -0.785" xyz="0.0 0.0 0.2"/>
-            <specs beam_angle="30.0"/>
-            <range velocity="2.6 2.6 2.6" altitude_min="0.5" altitude_max="50.0"/>
-            <noise velocity="0.0015" altitude="0.001"/>
-            <ros_publisher topic="/iris/navigator/dvl"
-                altitude_topic="/iris/navigator/altitude"/>
-        </sensor>
+		<sensor name="dvl" type="dvl" rate="5.0">
+			<link name="Vehicle"/>
+			<origin rpy="3.1416 0.0 -0.785" xyz="0.0 0.0 0.2"/>
+			<specs beam_angle="30.0"/>
+			<range velocity="2.6 2.6 2.6" altitude_min="0.5" altitude_max="50.0"/>
+			<noise velocity="0.0015" altitude="0.001"/>
+			<ros_publisher topic="/iris/navigator/dvl" altitude_topic="/iris/navigator/altitude"/>
+		</sensor>
 
-        <sensor name="imu_filter" type="imu" rate="20.0">
-            <link name="Vehicle"/>
-            <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
-            <noise angle="0.000001745" angular_velocity="0.00001745"/>
-            <ros_publisher topic="/iris/navigator/imu"/>
-        </sensor>
+		<sensor name="imu_filter" type="imu" rate="20.0">
+			<link name="Vehicle"/>
+			<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+			<noise angle="0.000001745" angular_velocity="0.00001745"/>
+			<ros_publisher topic="/iris/navigator/imu"/>
+		</sensor>
 
-        <sensor name="gps" type="gps" rate="1.0">
-            <link name="Vehicle"/>
-            <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
-            <noise ned_position="0.5"/>
-            <ros_publisher topic="/iris/navigator/gps"/>
-        </sensor>
+		<sensor name="gps" type="gps" rate="1.0">
+			<link name="Vehicle"/>
+			<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+			<noise ned_position="0.5"/>
+			<ros_publisher topic="/iris/navigator/gps"/>
+		</sensor>
 
-        <sensor name="proscilica_back" type="camera" rate="10.0">
-            <link name="Vehicle"/>
-            <origin rpy="1.57 0.0 1.57" xyz="0.48 0.0 -0.04"/>
-            <specs resolution_x="1360" resolution_y="1024" horizontal_fov="55.0"/>
-            <rendering spp="4"/>
-            <ros_publisher topic="/iris/proscilica_back"/>
-        </sensor>
-
-        <sensor name="proscilica_front" type="camera" rate="10.0">
-            <link name="Vehicle"/>
-            <origin rpy="1.57 0.0 -1.57" xyz="-0.35 0.0 -0.04"/>
-            <specs resolution_x="900" resolution_y="900" horizontal_fov="55.0"/>
-            <rendering spp="4"/>
-            <ros_publisher topic="/iris/proscilica_front"/>
-        </sensor>
-
+		<sensor name="proscilica_back" type="camera" rate="10.0">
+			<link name="Vehicle"/>
+			<origin rpy="1.57 0.0 1.57" xyz="0.48 0.0 -0.04"/>
+			<specs resolution_x="1360" resolution_y="1024" horizontal_fov="55.0"/>
+			<!-- <rendering spp="4"/> -->
+			<ros_publisher topic="/iris/proscilica_back"/>
+		</sensor>
+		<sensor name="proscilica_front" type="camera" rate="10.0">
+			<link name="Vehicle"/>
+			<origin rpy="1.57 0.0 -1.57" xyz="-0.35 0.0 -0.04"/>
+			<specs resolution_x="1360" resolution_y="1024" horizontal_fov="55.0"/>
+			<!-- <rendering spp="4"/> -->
+			<ros_publisher topic="/iris/proscilica_front"/>
+		</sensor>
         <actuator name="ThrusterSurge1" type="thruster">
             <link name="Vehicle"/>
             <origin rpy="0.0 0.0 0.0" xyz="0.43 -0.1653 -0.089"/>
@@ -564,7 +561,7 @@
 
         <comm name="USBL" device_id="1" type="usbl">
             <link name="Vehicle"/>
-            <specs min_vertical_fov="0.0" max_vertical_fov="220.0" range="1000.0"/>
+            <specs min_vertical_fov="0.0" max_vertical_fov="360.0" range="1000.0"/>
             <connect device_id="2" occlusion_test="false"/>
             <autoping rate="0.5"/>
             <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.5"/>
